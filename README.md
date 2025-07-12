@@ -12,7 +12,7 @@ Wireshark- Remediation
 
 ## 🚨 Threat Hunting and Security Operations
 
-- **[Threat Hunting Scenario (Tor Browser Usage)]
+- **[Threat Hunting Scenario (Tor Browser Usage)](https://github.com/Vveal1/threat-hunting-scenario-tor)
 
 <hr/>
 
