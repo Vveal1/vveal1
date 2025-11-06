@@ -20,12 +20,11 @@
     PowerShell Ver. : 
 
 .USAGE
-    Put any usage instructions here.
     Example syntax:
     PS C:\> .\__remediation_template(STIG-ID-WN10-CC-000370).ps1 
 #>
 
-# Define registry path and value information
+ registry path and value information
 # Disable "Turn on convenience PIN sign-in" (STIG ID: WN10-CC-000370)
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Force | Out-Null
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "AllowDomainPINLogon" -PropertyType DWord -Value 0 -Force | Out-Null
