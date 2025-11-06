@@ -1,1 +1,40 @@
+<#
+.SYNOPSIS
+    This PowerShell script ensures that Microsoft consumer experience is turned off.
 
+.NOTES
+    Author          : Vaughn Veal
+    LinkedIn        : https://www.linkedin.com/in/vlryn-veal-050420306/
+    GitHub          : github.com/vveal1
+    Date Created    : 2025-10-5
+    Last Modified   : 2025-10-5
+    Version         : 1.0
+    CVEs            : N/A
+    Plugin IDs      : N/A
+    STIG-ID         : WN10-CC-000197
+
+.TESTED ON
+    Date(s) Tested  : 
+    Tested By       : Vaughn Veal
+    Systems Tested  : Win/10
+    PowerShell Ver. : Admin
+
+.USAGE
+    PS C:\> .\__remediation_template(STIG-ID-WN10-CC-000197).ps1 
+#>
+
+ registry path and value information
+Must creat the CloudContent folder in registor editor beofre using admin
+PowerShell:
+# Define the registry path
+$regPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent"
+
+# Create the registry key if it does not exist
+if (-not (Test-Path $regPath)) {
+    New-Item -Path $regPath -Force | Out-Null
+}
+
+# Set the DisableWindowsConsumerFeatures value to 1
+New-ItemProperty -Path $regPath -Name "DisableWindowsConsumerFeatures" -PropertyType DWORD -Value 1 -Force
+
+Write-Host "Registry value DisableWindowsConsumerFeatures set to 1 successfully."
